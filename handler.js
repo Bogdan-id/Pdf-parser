@@ -2,6 +2,7 @@ const fs = require("fs")
 
 module.exports = {
   act: function(db, data, options) {
+    console.log(data)
     // if dbCollection passed connect/create collection
     if(process.argv[4]){
       let col = db.collection(process.argv[4]);

@@ -10,10 +10,6 @@ process.on('uncaughtException', (err, origin) => {
   );
 });
 
-let connector = require('./connector'),
-  checkNpm = require('./npm-error-handler'),
-  parser = require('./parser')
-
 /* 
   National Security and Defense Council of Ukraine
   legals and persons sunction list pdf parser
@@ -24,9 +20,14 @@ let connector = require('./connector'),
   For detail see Readme.md
 */
 
+let connector = require('./connector'),
+  checkNpm = require('./npm-error-handler'),
+  parser = require('./parser')
+
 try {
   checkNpm.checkArg(process.argv)
   parser.handle(connector.mongo)
+  console.log('try success')
 } catch (err) {
   console.log(err)
 }
